@@ -105,8 +105,28 @@ void print_arr_test()
 	}
 	printf("arr test done\n");
 }
+struct TEST_NODE
+{
+	char gender[3];
+	int ID;
+	char name[7];
+
+};
+void test_memory()
+{
+	const char* str = "test";
+	int number = 0x12345678;
+	TEST_NODE *node = new TEST_NODE;
+	node->ID = 100;
+	strcpy(node->gender,"男");
+	strcpy(node->name,"海洋");
+	
+	printf("str is %s,number is %d,node id is %d,test end\n",str,number,node->ID);
+	delete node;
+}
 int main(int argc,char* argv[])
 {
+	test_memory();
 	print_arr_test();
 
 	cond_fun_test(10,"test");
