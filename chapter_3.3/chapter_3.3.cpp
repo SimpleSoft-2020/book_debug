@@ -124,8 +124,27 @@ void test_memory()
 	printf("str is %s,number is %d,node id is %d,test end\n",str,number,node->ID);
 	delete node;
 }
+int call_fun_test_2(int level,const char* str)
+{
+	int number = 102;
+	const char *name = "call_fun_test_2";
+	printf("level is %d,str is %s,name is %s\n",level,str,name);
+	return 2;
+
+}
+int call_fun_test_1(int level,const char* str)
+{
+	int number = 101;
+	const char* name = "call_fun_test_1";
+	printf("level is %d,str is %s,name is %s\n",level,str,name);
+	call_fun_test_2(level + 1,"call_fun_test_2");
+	return 1;
+}
 int main(int argc,char* argv[])
 {
+	int number = 100;
+	const char* name ="main";
+	call_fun_test_1(1,"call_fun_test_1");
 	test_memory();
 	print_arr_test();
 
