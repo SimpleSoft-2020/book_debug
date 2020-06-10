@@ -1,11 +1,11 @@
 EXECUTABLE:= chapter_3.3
 LIBDIR:=
-LIBS:=
+LIBS:=pthread
 INCLUDES:=.
 SRCDIR:=
 
 CC:=g++
-CFLAGS:= -g -Wall -O0 -static -static-libgcc -static-libstdc++
+CFLAGS:= -g -Wall -O0 -static -static-libgcc -static-libstdc++ 
 CPPFLAGS:= $(CFLAGS)
 CPPFLAGS+= $(addprefix -I,$(INCLUDES))
 CPPFLAGS+= -I.

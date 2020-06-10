@@ -1,6 +1,10 @@
 #include <malloc.h>
 #include <string.h>
-
+#include <thread>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <assert.h>
 struct NODE
 {
 	int  ID;
@@ -57,6 +61,10 @@ class test_2:public test_1
 public:
 	test_2(){}
 	virtual ~test_2(){}
+	virtual void test_fun2()
+	{
+		printf("test_fun2\n");
+	}
 	virtual void test_fun()
 	{
 		printf("test_2 test_fun\n");
@@ -105,6 +113,14 @@ void print_arr_test()
 	}
 	printf("arr test done\n");
 }
+class test_3
+{
+	int x;
+	int y;
+	void test()
+	{
+	}
+};
 struct TEST_NODE
 {
 	char gender[3];
@@ -140,14 +156,69 @@ int call_fun_test_1(int level,const char* str)
 	call_fun_test_2(level + 1,"call_fun_test_2");
 	return 1;
 }
+int count = 0;
+void do_work(void *arg)
+{
+    std::cout << "线程函数开始"<< std::endl;
+    //模拟做一些事情
+    int local_data = count;
+    count++;
+    std::this_thread::sleep_for(std::chrono::seconds(3));
+    std::cout << "线程函数结束" << std::endl;
+}
+int start_threads(int thread_num)
+{
+    std::vector<std::thread> threads;
+    //启动10个线程
+    for (int i = 0; i < thread_num; ++i)
+    {
+        threads.push_back(std::thread(do_work,&i));
+        std::cout << "启动新线程：" << i << std::endl;
+    }
+    //等待所有线程结束
+    for (auto& thread : threads)
+    {
+        thread.join();
+    }
+}
+void test_throw(int number)
+{
+        int local_data = number;
+        const char* name = "test throw";
+        printf("name is %s,%d\n",name,local_data);
+        throw "test exception";
+}
+void test_try_catch(int number)
+{
+        int local_data = number;
+        const char* name = "test_try_catch";
+        printf("name is %s,%d\n",name,local_data);
+        try
+        {
+		int throw_num = 50;
+		printf("throw\n");
+                throw 10;
+        }
+        catch(...)
+        {
+		int catch_num = 100;
+                printf("catch ...\n");
+        }
+
+}
+
 int main(int argc,char* argv[])
 {
+	test_1 *t1 = NULL;
+	test_3 t3;
+	test_try_catch(10);
+	start_threads(10);
 	int number = 100;
 	const char* name ="main";
 	call_fun_test_1(1,"call_fun_test_1");
 	test_memory();
 	print_arr_test();
-
+	assert(t1 != NULL);
 	cond_fun_test(10,"test");
 	//test_loop();
 	
@@ -164,6 +235,7 @@ int main(int argc,char* argv[])
 	test->test_fun();
 	test_1 *test2 = new test_2();
 	test2->test_fun();
+	test_2 test3;
 	printf("传入的参数信息为:\n");
 	for(int i=0;i<argc;i++)
 	{
