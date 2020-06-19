@@ -1,4 +1,4 @@
-EXECUTABLE:= chapter_4.1.4
+EXECUTABLE:= chapter_4.1.4_release
 
 LIBDIR:=
 LIBS:=pthread
@@ -6,7 +6,7 @@ INCLUDES:=.
 SRCDIR:=
 
 CC:=g++
-CFLAGS:= -g -Wall -O3 -static -static-libgcc -static-libstdc++ 
+CFLAGS:= -Wall -O3 -static -static-libgcc -static-libstdc++ 
 CPPFLAGS:= $(CFLAGS)
 CPPFLAGS+= $(addprefix -I,$(INCLUDES))
 CPPFLAGS+= -I.
