@@ -2,6 +2,11 @@
 
 # 教学视频
 
+## Windows VC++调试
+
+https://ke.qq.com/course/3418789
+
+## Linux C/C++ 调试
 
 https://ke.qq.com/course/3449916
 
