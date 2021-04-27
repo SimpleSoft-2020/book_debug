@@ -1,4 +1,11 @@
 # book_debug
+
+# 教学视频
+
+
+https://ke.qq.com/course/3449916
+
+
 欢迎加入C++代码调试交流2群：
 
 # QQ群：512800494
