@@ -2,11 +2,12 @@
 
 # 教学视频
 
-## Windows VC++调试
+# Visual Studio C++调试入门与提高	
 
 https://edu.51cto.com/course/23263.html
 
-## Linux C/C++ 调试
+
+# Linux GDB C/C++调试基础与提升
 
 https://edu.51cto.com/course/27750.html
 
