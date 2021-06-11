@@ -4,11 +4,11 @@
 
 ## Windows VC++调试
 
-https://ke.qq.com/course/3418789
+https://edu.51cto.com/course/23263.html
 
 ## Linux C/C++ 调试
 
-https://ke.qq.com/course/3449916
+https://edu.51cto.com/course/27750.html
 
 
 欢迎加入C++代码调试交流2群：
