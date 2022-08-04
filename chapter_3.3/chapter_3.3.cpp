@@ -218,7 +218,7 @@ int main(int argc,char* argv[])
 	call_fun_test_1(1,"call_fun_test_1");
 	test_memory();
 	print_arr_test();
-	assert(t1 != NULL);
+	//assert(t1 != NULL);
 	cond_fun_test(10,"test");
 	//test_loop();
 	
